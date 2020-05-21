@@ -10,7 +10,6 @@ class Card:
 
 
 class Deck:
-
     def __init__(self):
         self.cards = self._create_deck()
 
@@ -21,7 +20,11 @@ class Deck:
 
         return [Card(value, suit) for suit in suits for value in values]
 
+    def count(self):
+        return len(self.cards)
+
 
 card = Card("A", "Clubs")
 print(card)
 deck = Deck()
+print(deck.count())
