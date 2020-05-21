@@ -14,7 +14,8 @@ class Deck:
     def __init__(self):
         self.cards = self._create_deck()
 
-    # def __repr__(self):
+    def __repr__(self):
+        return f"Deck of {self.count} cards"
 
     def _create_deck(self):
         values = ["A", "2", "3", "4", "5", "6",
@@ -30,7 +31,7 @@ class Deck:
         count = self.count()
         to_deal = min([count, num])
         if count == 0:
-            raise ValueError('All cards have been dealt')
+            raise ValueError("All cards have been dealt")
         dealt = self.cards[-to_deal:]
         del self.cards[-to_deal:]
         return dealt
@@ -42,15 +43,19 @@ class Deck:
         return self._deal(num)
 
     def shuffle(self):
-        if self.count < 52:
-            raise ValueError('Only full decks can be shuffled')
+        if self.count() < 52:
+            raise ValueError("Only full decks can be shuffled")
 
         shuffle(self.cards)
         return self
 
 
-card = Card("A", "Clubs")
+d = Deck()
+d.shuffle()
+card = d.deal_card()
 print(card)
-deck = Deck()
-print(deck.count())
-print(deck.deal_card)
+hand = d.deal_hand(50)
+card2 = d.deal_card()
+print(card2)
+print(d.cards)
+card2 = d.deal_card()
