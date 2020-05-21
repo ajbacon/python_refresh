@@ -23,8 +23,20 @@ class Deck:
     def count(self):
         return len(self.cards)
 
+    def _deal(self, num):
+        count = self.count()
+        to_deal = min([count, num])
+        if count == 0:
+            raise ValueError('All cards have been dealt')
+        dealt = self.cards[-to_deal:]
+        del self.cards[-to_deal:]
+        # self.cards = self.cards[:-to_deal]
+        print(self.cards)
+        return dealt
+
 
 card = Card("A", "Clubs")
 print(card)
 deck = Deck()
 print(deck.count())
+deck._deal(1)
