@@ -10,12 +10,18 @@ class Card:
 
 
 class Deck:
-    values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-    suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
 
     def __init__(self):
-        pass
+        self.cards = self._create_deck()
+
+    def _create_deck(self):
+        values = ["A", "2", "3", "4", "5", "6",
+                  "7", "8", "9", "10", "J", "Q", "K"]
+        suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
+
+        return [Card(value, suit) for suit in suits for value in values]
 
 
 card = Card("A", "Clubs")
 print(card)
+deck = Deck()
