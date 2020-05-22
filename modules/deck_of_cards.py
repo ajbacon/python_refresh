@@ -48,14 +48,3 @@ class Deck:
 
         shuffle(self.cards)
         return self
-
-
-d = Deck()
-d.shuffle()
-card = d.deal_card()
-print(card)
-hand = d.deal_hand(50)
-card2 = d.deal_card()
-print(card2)
-print(d.cards)
-card2 = d.deal_card()
